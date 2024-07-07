@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareerFasten</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!--====================Slide bar==============-->
+      
+        <!--========== BOX ICONS ==========-->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+        />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="/css/home.css" />
+        <title>home</title>
+      </head>
+      <body>
+        <!--========== HEADER ==========-->
+        <header class="header">
+          <div class="header__container">
+            <div class="header__search">
+              <input type="text" value="<%=user.usn.toUpperCase()%>" class="header__input user " readonly/>
+            </div>
+            <a href="/home" class="header__logo">CareerFasten</a>
+            <div class="header__search">
+              <input type="button" value="PlayGround" class="header__input " />
+            </div>
+            <div class="header__toggle">
+              <i class="bx bx-menu" id="header-toggle"></i>
+            </div>
+          </div>
+        </header>
+
+        <!--========== NAV ==========-->
+        <div class="nav" id="navbar">
+          <nav class="nav__container">
+            <div>
+              <a href="/home" class="nav__link nav__logo">
+                <i class="bx bxs-disc nav__icon"></i>
+                <span class="nav__logo-name">CareerFasten</span>
+              </a>
+              <div class="nav__list">
+                <div class="nav__items">
+                  <a href="/home" class="nav__link ">
+                    <i class="bx bx-home nav__icon"></i>
+                    <span class="nav__name">Home</span>
+                  </a>
+                  <a href="/roadmap" class="nav__link ">
+                    <i class='bx bx-map nav__icon'></i>
+                    <span class="nav__name">RoadMap</span>
+                  </a>
+                  <a href="/upcoming" class="nav__link">
+                    <i class='bx bx-repost nav__icon' ></i>
+                    <span class="nav__name">Upcoming_Updates</span>
+                  </a>
+                  <a href="/resources" class="nav__link">
+                    <i class='bx bx-note nav__icon'></i>
+                    <span class="nav__name">Resources</span>
+                  </a>
+                  <a href="/resumebuilder" class="nav__link">
+                    <i class='bx bxs-book-content nav__icon'></i>
+                    <span class="nav__name">Resume_Builder</span>
+                  </a>
+                  <a href="/discuss" class="nav__link">
+                    <i class="bx bx-message-rounded nav__icon"></i>
+                    <span class="nav__name">Discuss</span>
+                  </a> 
+                  <a href="/logout" class="nav__link nav__logout">
+                   <i class="bx bx-log-out nav__icon"></i>
+                   <span class="nav__name">Log Out</span>
+            </a>
+          </nav>
+        </div>
+
+        <!--========== CONTENTS ==========-->
+        <main>
+          <section>
+            <div class="container col-xxl-15 px-4 py-5">
+              <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                  <img src="/img/home.jpg" class="d-block rounded-3 shadow-lg bg-body-tertiary " width="500" height="500">
+                </div>
+                <div class="col-lg-6">
+                  <h1 class="display-5 fw-bold lh-1 mb-3">Placement Preparation</h1>
+                  <p class="lead">Discover your path to success through the college placements portal—an invaluable tool connecting ambition with professional growth and paving the way for your future achievements.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--============Top Feedback==========-->
+          <!--============= Carousel controls============= -->
+                  <a
+                    class="carousel-control left"
+                    href="#myCarousel"
+                    data-slide="prev"
+                  >
+                    <i class="fa fa-chevron-left"></i>
+                  </a>
+                  <a
+                    class="carousel-control right"
+                    href="#myCarousel"
+                    data-slide="next"
+                  >
+                    <i class="fa fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--======================================-->
+          <div class="container">
+            <div class="text-center mt-5">
+              <h1>Feedback</h1>
+            </div>
+            <div class="row">
+              <div class="col-lg-7 mx-auto">
+                <div class="card mt-2 mx-auto p-4 bg-light">
+                  <div class="card-body bg-light">
+                    <div class="container">
+                      <form id="contact-form" role="form" action="/create" method="post">
+                        <div class="controls">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="form_name">Full Name *</label>
+                                <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your full name *" required="required" data-error="Fullname is required.">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="form_email">Email *</label>
+                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="form_message">Message *</label>
+                                <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                              <input type="submit" class="btn btn-success btn-send pt-2 btn-block" value="Send Message">
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <footer class="footer mt-10 py-3 bg-light">
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-body" href="https:">careerfasten.com</a>
+      </div>
+    </footer>
+        </main>
+
+        <!--========== MAIN JS ==========-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="/javascript/home.js"></script>
+      </body>
+    </html>
+  </body>
+</html>

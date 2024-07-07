@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareerFasten</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!--========== BOX ICONS ==========-->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+        />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="/css/home.css" />
+        <link rel="stylesheet" href="/css/roadmap.css">
+
+        <title>home</title>
+      </head>
+      <body>
+        <!--========== HEADER ==========-->
+        <header class="header">
+          <div class="header__container">
+            <div class="header__search">
+              <input type="text" value="<%=user.usn.toUpperCase()%>" class="header__input user " readonly />
+            </div>
+            
+
+            <a href="/home" class="header__logo">CareerFasten</a>
+
+            <div class="header__search">
+              <input type="button" value="PlayGround" class="header__input " />
+            
+            </div>
+
+            <div class="header__toggle">
+              <i class="bx bx-menu" id="header-toggle"></i>
+            </div>
+          </div>
+        </header>
+
+        <!--========== NAV ==========-->
+        <div class="nav" id="navbar">
+          <nav class="nav__container">
+            <div>
+              <a href="/home" class="nav__link nav__logo">
+                <i class="bx bxs-disc nav__icon"></i>
+                <span class="nav__logo-name">CareerFasten</span>
+              </a>
+
+              <div class="nav__list">
+                <div class="nav__items">
+                  <a href="/home" class="nav__link active">
+                    <i class="bx bx-home nav__icon"></i>
+                    <span class="nav__name">Home</span>
+                  </a>
+                  <a href="/roadmap" class="nav__link">
+                    <i class='bx bx-map nav__icon'></i>
+                    <span class="nav__name">RoadMap</span>
+                  </a>
+
+                
+
+                  <a href="/upcoming" class="nav__link">
+                    <i class='bx bx-repost nav__icon' ></i>
+                    <span class="nav__name">Upcoming_Updates</span>
+                  </a>
+                  <a href="/resources" class="nav__link">
+                    <i class='bx bx-note nav__icon'></i>
+                    <span class="nav__name">Resources</span>
+                  </a>
+                  <a href="/resumebuilder" class="nav__link">
+                    <i class='bx bxs-book-content nav__icon'></i>
+                    <span class="nav__name">Resume_Builder</span>
+                  </a>
+
+                  <a href="/discus" class="nav__link">
+                    <i class="bx bx-message-rounded nav__icon"></i>
+
+                    <span class="nav__name">Discuss</span>
+                  </a>
+               
+            <a href="/logout" class="nav__link nav__logout">
+              <i class="bx bx-log-out nav__icon"></i>
+              <span class="nav__name">Log Out</span>
+            </a>
+          </nav>
+        </div>
+
+        <!--========== CONTENTS ==========-->
+        <main>
+          <section>
+            <div class="roadmap-container">
+              <h1>Campus Placements Preparation Guide</h1>
+              <div class="roadmap-section">
+                  <h2>Understanding the Campus Placement Process</h2>
+                  <ul>
+                      <li>Recruitment Cycle in Colleges</li>
+                      <li>Importance of Academics and Skills</li>
+                      <li>Understanding Job Profiles and Roles</li>
+                      <li>Understanding Company's Selection Process</li>
+                      <li>Role of Training and Placement Cell</li>
+                      <li>Importance of Internships in Placement</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Resume Preparation</h2>
+                  <ul>
+                      <li>Structure of an Effective Resume</li>
+                      <li>Essential Components of a Resume</li>
+                      <li>Showcasing Technical Skills and Achievements</li>
+                      <li>Highlighting Relevant Internships and Projects</li>
+                      <li>Delivering an Impactful Objective Statement</li>
+                      <li>Importance of Proofreading and Error Checking</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Aptitude Skills Development</h2>
+                  <ul>
+                      <li>Numerical Aptitude</li>
+                      <li>Logical Reasoning</li>
+                      <li>Verbal Ability</li>
+                      <li>Data Interpretation</li>
+                      <li>Practicing through Mock Tests</li>
+                      <li>Importance of Time Management</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Technical Skills Development</h2>
+                  <ul>
+                      <li>Basic Computer Science Fundamentals</li>
+                      <li>Programming Languages</li>
+                      <li>Data Structures and Algorithms</li>
+                      <li>Operating Systems Concepts</li>
+                      <li>Database Management Systems</li>
+                      <li>Computer Networks</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Company Specific Preparation</h2>
+                  <ul>
+                      <li>Understanding the Company's Business Model</li>
+                      <li>Understanding the Company's Core Values</li>
+                      <li>Studying about the Company's Products and Services</li>
+                      <li>Following Company's Recent News and Updates</li>
+                      <li>Going through Previous Years' Placement Papers</li>
+                      <li>Practising Company Specific Coding Questions</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Soft Skills Development</h2>
+                  <ul>
+                      <li>Communication Skills</li>
+                      <li>Leadership Skills</li>
+                      <li>Problem Solving and Decision Making</li>
+                      <li>Time Management</li>
+                      <li>Teamwork and Collaboration</li>
+                      <li>Personality Development</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Group Discussion Preparation</h2>
+                  <ul>
+                      <li>Understanding the Role of Group Discussion</li>
+                      <li>Keeping Updated with Current Affairs</li>
+                      <li>Improving Communication and Presentation Skills</li>
+                      <li>Practicing with Sample Topics</li>
+                      <li>Listening Skills and Respectful Disagreements</li>
+                      <li>Assertiveness and Leadership Qualities</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Interview Preparation</h2>
+                  <ul>
+                      <li>Understanding the Interview Process</li>
+                      <li>Technical Round Preparation</li>
+                      <li>HR Round Preparation</li>
+                      <li>Mock Interviews and Feedback Incorporation</li>
+                      <li>Problem Solving and Explaining your Approach</li>
+                      <li>Negotiating Job Offers</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Training and Certifications</h2>
+                  <ul>
+                      <li>Domain-Specific Training</li>
+                      <li>Earning Relevant Certifications</li>
+                      <li>Online Courses and MOOCs</li>
+                      <li>Role of Internships and Industrial Visits</li>
+                      <li>Importance of Mini Projects and Hackathons</li>
+                      <li>Building a strong Portfolio</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Networking</h2>
+                  <ul>
+                      <li>Importance of Networking for Placements</li>
+                      <li>Utilising LinkedIn and other Professional Networks</li>
+                      <li>Building Relationships with Alumni</li>
+                      <li>Attending Career Fairs and Workshops</li>
+                      <li>Networking with Professors and College Staff</li>
+                      <li>Participating in College Clubs and Forums</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Developing a Growth Mindset</h2>
+                  <ul>
+                      <li>Emphasizing Learning over Perfection</li>
+                      <li>Handling Rejections and Failures</li>
+                      <li>Developing a Positive Attitude</li>
+                      <li>Self Motivation and Perseverance</li>
+                      <li>Setting Goals and Regular Self Review</li>
+                      <li>Maintaining a Healthy Work-Life Balance</li>
+                  </ul>
+              </div>
+              <div class="roadmap-section">
+                  <h2>Staying Updated with the Industry</h2>
+                  <ul>
+                      <li>Following Technology News</li>
+                      <li>Reading Research Papers and Articles</li>
+                      <li>Participating in Tech Conferences and Webinars</li>
+                      <li>Joining Relevant Online Communities</li>
+                      <li>Understanding the Latest Industry Trends</li>
+                      <li>Awareness of Emerging Technologies and Softwares</li>
+                  </ul>
+              </div>
+          </div>
+          </section>
+
+    <footer class="footer mt-10 py-3 bg-light">
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-body" href="https:">careerfasten.com</a>
+      </div>
+    </footer>
+        </main>
+
+        <!--========== MAIN JS ==========-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="/javascript/home.js"></script>
+      </body>
+    </html>
+  </body>
+</html>
