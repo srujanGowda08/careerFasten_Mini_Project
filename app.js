@@ -7,6 +7,7 @@ const studentModel = require("./models/studentModel");
 const adminModel = require("./models/adminModel");
 const feedbackModel = require("./models/feedbackModel");
 const upcomingModel = require("./models/upcomingModel");
+const ResourceModel = require("./models/resourcesModel");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -135,13 +136,23 @@ app.get("/roadmap", verifyToken, isStudent, (req, res) => {
 });
 
 // Upcoming events page
-app.get("/upcoming", verifyToken, isStudent, (req, res) => {
-  res.render("upcoming", { user: req.user });
+app.get("/upcoming", verifyToken, isStudent, async (req, res) => {
+  try {
+    const upcoming = await upcomingModel.find();
+    res.render("upcoming", { user: req.user, upcoming: upcoming });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // Resources page
-app.get("/resources", verifyToken, isStudent, (req, res) => {
-  res.render("resources", { user: req.user });
+app.get("/resources", verifyToken, isStudent, async (req, res) => {
+  try {
+    const resources = await ResourceModel.find();
+    res.render("resources", { user: req.user, resources: resources });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // ResumeBuilder page
@@ -202,6 +213,59 @@ app.post("/delete-upcoming/:id", verifyToken, isAdmin, async (req, res) => {
     const { id } = req.params;
     await upcomingModel.findByIdAndDelete(id);
     res.redirect("/admin-upcoming");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Resources page for admin
+app.get("/admin-resources", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const resources = await ResourceModel.find();
+    res.render("admin-resources", { user: req.user, resources: resources });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Create resource
+app.post("/create-resource", verifyToken, isAdmin, async (req, res) => {
+  try {
+    await ResourceModel.create({
+      category: req.body.category,
+      title: req.body.title,
+      description: req.body.description,
+      date: req.body.date,
+    });
+    res.redirect("/admin-resources");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Edit resource
+app.post("/edit-resource/:id", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { category, title, description, date } = req.body;
+    await ResourceModel.findByIdAndUpdate(id, {
+      category,
+      title,
+      description,
+      date,
+    });
+    res.redirect("/admin-resources");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Delete resource
+app.post("/delete-resource/:id", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+    await ResourceModel.findByIdAndDelete(id);
+    res.redirect("/admin-resources");
   } catch (error) {
     res.status(500).send("Internal Server Error");
   }

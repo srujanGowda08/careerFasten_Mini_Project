@@ -147,7 +147,11 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #5cb85c 0%, #98f898 100%);
+  background-image: linear-gradient(
+    -95deg,
+    rgb(232, 64, 58) 0%,
+    rgb(85, 196, 173) 100%
+  );
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
