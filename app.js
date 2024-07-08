@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const studentModel = require("./models/studentModel");
 const adminModel = require("./models/adminModel");
 const feedbackModel = require("./models/feedbackModel");
+const upcomingModel = require("./models/upcomingModel");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -66,7 +67,7 @@ app.post("/create", verifyToken, isStudent, async (req, res) => {
       email: req.body.email,
       content: req.body.message,
     });
-    
+
     res.redirect("/home");
   } catch (error) {
     res.status(500).send("Internal Server Error");
@@ -151,6 +152,59 @@ app.get("/resumebuilder", verifyToken, isStudent, (req, res) => {
 // Discuss page
 app.get("/discuss", verifyToken, isStudent, (req, res) => {
   res.render("discuss", { user: req.user });
+});
+
+// Admin upcoming page
+app.get("/admin-upcoming", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const upcoming = await upcomingModel.find();
+    res.render("admin-upcoming", { user: req.user, upcoming: upcoming });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Create upcoming event
+app.post("/create-upcoming", verifyToken, isAdmin, async (req, res) => {
+  try {
+    await upcomingModel.create({
+      jobTitle: req.body.jobTitle,
+      companyName: req.body.companyName,
+      description: req.body.description,
+      date: req.body.date,
+    });
+    res.redirect("/admin-upcoming");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Edit upcoming event
+app.post("/edit-upcoming/:id", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { jobTitle, companyName, description, date } = req.body;
+    await upcomingModel.findByIdAndUpdate(id, {
+      jobTitle,
+      companyName,
+      description,
+      date,
+    });
+    res.redirect("/admin-upcoming");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Delete upcoming event
+app.post("/delete-upcoming/:id", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+    await upcomingModel.findByIdAndDelete(id);
+    res.redirect("/admin-upcoming");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // Logout route

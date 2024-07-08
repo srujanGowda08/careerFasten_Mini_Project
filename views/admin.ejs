@@ -1,10 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Admin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerFasten</title>
+   <!--========== BOX ICONS ==========-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--========== CSS ==========-->
+  <link rel="stylesheet" href="/css/adminHome.css" />
+  <link rel="stylesheet" href="/css/testimonials.css">
 </head>
+
 <body>
-  <h1>Welcome, Admin!</h1>
-  <p>Your Admin ID is: <%= user.adminID %></p>
-</body>
-</html>
+
+    <!--====================Slide bar==============-->
+  <body>
+    <!--========== HEADER ==========-->
+    <header class="header">
+      <div class="header__container">
+        <div class="header__search">
+          <input type="text" value="<%=user.adminID.toUpperCase()%>" class="header__input user " readonly />
+        </div>
+        <a href="/admin" class="header__logo">CareerFasten</a>
+        <div class="header__search">
+          <input type="button" value="Notify All" class="header__input " />
+        </div>
+        <div class="header__toggle">
+          <i class="bx bx-menu" id="header-toggle"></i>
+        </div>
+      </div>
+    </header>
+
+    <!--========== NAV ==========-->
+    <div class="nav" id="navbar">
+      <nav class="nav__container">
+        <div>
+          <a href="/admin" class="nav__link nav__logo">
+            <i class="bx bxs-disc nav__icon"></i>
+            <span class="nav__logo-name">CareerFasten</span>
+          </a>
+          <div class="nav__list">
+            <div class="nav__items">
+              <a href="/admin" class="nav__link ">
+                <i class="bx bx-home nav__icon"></i>
+                <span class="nav__name">Home</span>
+              </a>
+              <a href="/admin-upcoming" class="nav__link">
+                <i class='bx bx-repost nav__icon'></i>
+                <span class="nav__name">Upcoming_Updates</span>
+              </a>
+              <a href="/admin-resources" class="nav__link">
+                <i class='bx bx-note nav__icon'></i>
+                <span class="nav__name">Resources</span>
+              </a>
+              <a href="/admin-feedback" class="nav__link">
+                <i class='bx bxs-book-content nav__icon'></i>
+                <span class="nav__name">Feedback</span>nj
+              </a>
+              <a href="/admin-discuss" class="nav__link">
+                <i class="bx bx-message-rounded nav__icon"></i>
+                <span class="nav__name">Discuss</span>
+              </a>
+              <a href="/logout" class="nav__link nav__logout">
+                <i class="bx bx-log-out nav__icon"></i>
+                <span class="nav__name">Log Out</span>
+              </a>
+      </nav>
+    </div>
+    <!--======================================================-->
+    <div class="container col-xxl-8 px-0   py-5 mt-5">
+      <div class="row flex-lg-row-reverse align-items-center g-9 py-15">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="/img/register.svg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Welcome Admin!</h1>
+          <p class="lead">Greetings, Admin! Welcome to your dedicated space where you can efficiently manage and oversee all aspects of our platform.  Here, you can add resources, announce upcoming updates, and view feedback from students, all in one place. Our goal is to empower you with the tools and resources needed to enhance the user experience and maintain a high standard of service. Should you need any assistance, our support team is always here to help. Thank you for your continued dedication and hard work.</p>
+        </div>
+      </div>
+    </div>
+    <!--======================================================-->
+
+
+    <!--========== CONTENTS ==========-->
+      <footer class="footer mt-10 py-3 bg-light">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+          © 2024 Copyright:
+          <a class="text-body" href="https:">careerfasten.com</a>
+        </div>
+      </footer>
+    </main>
+
+    <!--========== MAIN JS ==========-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <script src="/javascript/home.js"></script>
+    <script src="/javascript/testimonial.js"></script>
+  </body>
+
+  </html>
