@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
@@ -47,9 +51,10 @@ const isAdmin = (req, res, next) => {
   next();
 };
 
-//-------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Routes
 
-// main route
+// Main route
 app.get("/", (req, res) => {
   res.render("login");
 });
@@ -271,13 +276,56 @@ app.post("/delete-resource/:id", verifyToken, isAdmin, async (req, res) => {
   }
 });
 
-// Logout route
+// Admin feedback page
+app.get("/admin-feedback", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const feedback = await feedbackModel.find();
+    res.render("admin-feedback", { user: req.user, feedback: feedback });
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Delete feedback
+app.post("/delete-feedback/:id", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+    await feedbackModel.findByIdAndDelete(id);
+    res.redirect("/admin-feedback");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.get("/logout", (req, res) => {
   res.clearCookie("token");
   res.redirect("/");
 });
 
-// Server running
-app.listen(3000, () => {
+//------------------------------------------------------------------------------
+// WebSocket integration for real-time messaging
+
+// WebSocket connection
+io.on("connection", (socket) => {
+  console.log("a user connected");
+
+  // Handle incoming messages
+  socket.on("message", (message) => {
+    // console.log("message: " + message.text);
+    // Broadcast the message to all connected clients
+    io.emit("message", { text: message.text, username: message.username });
+  });
+
+  // Handle user disconnection
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
+
+//------------------------------------------------------------------------------
+// Start the server
+
+// Replace 'app.listen' with 'server.listen' to use http server
+server.listen(3000, () => {
   console.log("Server is running on port 3000");
 });

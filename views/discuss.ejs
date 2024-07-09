@@ -3,117 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CareerFasten</title>
+    <title>CareerFasten - Discuss</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/discuss.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <!--========== BOX ICONS ==========-->
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-        />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        
-        <!--========== CSS ==========-->
-        <link rel="stylesheet" href="/css/home.css" />
-        <link rel="stylesheet" href="/css/discuss.css">
-      </head>
-      <body>
-        <!--========== HEADER ==========-->
-        <header class="header">
-          <div class="header__container">
-            <div class="header__search">
-              <input type="text" value="<%=user.usn.toUpperCase()%>" class="header__input user " readonly />
-            </div>
-            
-
-            <a href="/home" class="header__logo">CareerFasten</a>
-
-            <div class="header__search">
-              <input type="button" value="PlayGround" class="header__input " />
-            
-            </div>
-
-            <div class="header__toggle">
-              <i class="bx bx-menu" id="header-toggle"></i>
-            </div>
-          </div>
-        </header>
-        <!--========== NAV ==========-->
-        <div class="nav" id="navbar">
-          <nav class="nav__container">
-            <div>
-              <a href="/home" class="nav__link nav__logo">
-                <i class="bx bxs-disc nav__icon"></i>
-                <span class="nav__logo-name">CareerFasten</span>
-              </a>
-
-              <div class="nav__list">
-                <div class="nav__items">
-                  <a href="/home" class="nav__link active">
-                    <i class="bx bx-home nav__icon"></i>
-                    <span class="nav__name">Home</span>
-                  </a>
-                  <a href="/roadmap" class="nav__link">
-                    <i class='bx bx-map nav__icon'></i>
-                    <span class="nav__name">RoadMap</span>
-                  </a>
-
-                
-
-                  <a href="/upcoming" class="nav__link">
-                    <i class='bx bx-repost nav__icon' ></i>
-                    <span class="nav__name">Upcoming_Updates</span>
-                  </a>
-                  <a href="/resources" class="nav__link">
-                    <i class='bx bx-note nav__icon'></i>
-                    <span class="nav__name">Resources</span>
-                  </a>
-                  <a href="/resumebuilder" class="nav__link">
-                    <i class='bx bxs-book-content nav__icon'></i>
-                    <span class="nav__name">Resume_Builder</span>
-                  </a>
-
-                  <a href="/discuss" class="nav__link">
-                    <i class="bx bx-message-rounded nav__icon"></i>
-
-                    <span class="nav__name">Discuss</span>
-                  </a>
-               
-            <a href="/logout" class="nav__link nav__logout">
-              <i class="bx bx-log-out nav__icon"></i>
-              <span class="nav__name">Log Out</span>
-            </a>
-          </nav>
+    <!-- Header and Navigation -->
+    <header class="header">
+      <div class="header__container">
+        <div class="header__search">
+          <input
+            type="text"
+            value="<%= user.usn.toUpperCase() %>"
+            class="header__input user"
+            readonly
+          />
         </div>
-
-        <!--========== CONTENTS ==========-->
-        <main>
-          <section>
-            <div id="chat">
-              <div id="messages"></div>
-              <input id="message-input" type="text" placeholder="Type a message...">
-              <button id="send-button">Send</button>
-          </div>
-          </section>
-
-    <footer class="footer mt-10 py-3 bg-light">
-      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2024 Copyright:
-        <a class="text-body" href="https:">careerfasten.com</a>
+        <a href="/home" class="header__logo">CareerFasten</a>
+        <div class="header__search">
+          <input type="button" value="PlayGround" class="header__input" />
+        </div>
+        <div class="header__toggle">
+          <i class="bx bx-menu" id="header-toggle"></i>
+        </div>
       </div>
-    </footer>
-        </main>
+    </header>
 
-        <!--========== MAIN JS ==========-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="/javascript/home.js"></script>
-      </body>
-    </html>
+    <!-- Navigation -->
+    <div class="nav" id="navbar">
+      <nav class="nav__container">
+        <div>
+          <a href="/home" class="nav__link nav__logo">
+            <i class="bx bxs-disc nav__icon"></i>
+            <span class="nav__logo-name">CareerFasten</span>
+          </a>
+          <div class="nav__list">
+            <div class="nav__items">
+              <a href="/home" class="nav__link active">
+                <i class="bx bx-home nav__icon"></i>
+                <span class="nav__name">Home</span>
+              </a>
+              <a href="/roadmap" class="nav__link">
+                <i class="bx bx-map nav__icon"></i>
+                <span class="nav__name">RoadMap</span>
+              </a>
+              <a href="/upcoming" class="nav__link">
+                <i class="bx bx-repost nav__icon"></i>
+                <span class="nav__name">Upcoming_Updates</span>
+              </a>
+              <a href="/resources" class="nav__link">
+                <i class="bx bx-note nav__icon"></i>
+                <span class="nav__name">Resources</span>
+              </a>
+              <a href="/resumebuilder" class="nav__link">
+                <i class="bx bxs-book-content nav__icon"></i>
+                <span class="nav__name">Resume_Builder</span>
+              </a>
+              <a href="/discuss" class="nav__link">
+                <i class="bx bx-message-rounded nav__icon"></i>
+                <span class="nav__name">Discuss</span>
+              </a>
+              <a href="/logout" class="nav__link nav__logout">
+                <i class="bx bx-log-out nav__icon"></i>
+                <span class="nav__name">Log Out</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Discussion Section -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Discussion(Don't refresh the page while chatting)</h2>
+          <div
+            id="messages"
+            class="border p-3 mb-3"
+            style="height: 400px; overflow-y: scroll"
+          >
+            <!-- Messages will be displayed here -->
+          </div>
+          <form id="messageForm">
+            <div class="input-group">
+              <input
+                type="text"
+                id="messageInput"
+                class="form-control"
+                placeholder="Type a message..."
+              />
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Socket.IO Script -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      // Display incoming messages with username
+      socket.on("message", (message) => {
+        const messagesDiv = document.getElementById("messages");
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("message");
+
+        // Assuming message is an object with 'text' and 'username' properties
+        messageElement.innerHTML = `
+        <p class="meta text-red-500">${message.username}</p>
+          <p class="text">${message.text}</p>
+      `;
+
+        messagesDiv.appendChild(messageElement);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      });
+
+      // Send message
+      document.getElementById("messageForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const messageInput = document.getElementById("messageInput");
+        if (messageInput.value.trim()) {
+          socket.emit("message", {
+            text: messageInput.value,
+            username: "<%= user.usn %>",
+          });
+          messageInput.value = "";
+        }
+      });
+    </script>
   </body>
 </html>
