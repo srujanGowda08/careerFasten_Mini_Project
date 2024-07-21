@@ -51,3 +51,31 @@ button {
 button:hover {
   background-color: #4cae4c;
 }
+
+.resume-preview {
+  border: 1px solid #ddd;
+  padding: 20px;
+  height: 842px; /* A4 height in pixels */
+  width: 595px; /* A4 width in pixels */
+  overflow: auto;
+  background-color: #fff;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.resume-preview h2,
+.resume-preview h4,
+.resume-preview h5 {
+  color: #009696;
+  margin-bottom: 10px;
+}
+
+.resume-preview p {
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.resume-preview hr {
+  border: 1px solid #009696;
+  margin-bottom: 20px;
+}

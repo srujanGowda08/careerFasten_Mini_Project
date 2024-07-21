@@ -119,3 +119,30 @@ function generateResume() {
   // Save the PDF
   doc.save(`${name}_Resume.pdf`);
 }
+
+function updatePreview() {
+  document.getElementById("previewName").innerText =
+    document.getElementById("name").value;
+  document.getElementById("previewDegree").innerText =
+    document.getElementById("degree").value;
+  document.getElementById("previewObjective").innerText =
+    document.getElementById("objective").value;
+  document.getElementById("previewTechnicalSkills").innerText =
+    document.getElementById("technicalSkills").value;
+  document.getElementById("previewPersonalSkills").innerText =
+    document.getElementById("personalSkills").value;
+  document.getElementById("previewAddress").innerText =
+    document.getElementById("address").value;
+  document.getElementById("previewContact").innerText =
+    document.getElementById("contact").value;
+  document.getElementById("previewEmail").innerText =
+    document.getElementById("email").value;
+  document.getElementById("previewDob").innerText =
+    document.getElementById("dob").value;
+  document.getElementById("previewEducation").innerText =
+    document.getElementById("education").value;
+  document.getElementById("previewAchievements").innerText =
+    document.getElementById("achievements").value;
+  document.getElementById("previewExperience").innerText =
+    document.getElementById("experience").value;
+}
