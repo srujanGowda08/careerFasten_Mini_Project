@@ -7,6 +7,7 @@ const io = new Server(server);
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
 const studentModel = require("./models/studentModel");
 const adminModel = require("./models/adminModel");
 const feedbackModel = require("./models/feedbackModel");
@@ -300,6 +301,68 @@ app.post("/delete-feedback/:id", verifyToken, isAdmin, async (req, res) => {
 app.get("/logout", (req, res) => {
   res.clearCookie("token");
   res.redirect("/");
+});
+
+//------------------------------------------------------------------------------
+// Create transporter for nodemailer
+// Create transporter for nodemailer
+const transporter = nodemailer.createTransport({
+  service: "Gmail", // Use your email service
+  auth: {
+    user: "cmn896344@gmail.com", // Replace with your email
+    pass: "nyud yobb tkdj ghiz", // Replace with your app password
+  },
+});
+
+// Route to handle sending notifications to all students
+app.post("/send-notification", verifyToken, isAdmin, async (req, res) => {
+  const { subject, message } = req.body;
+
+  try {
+    // Retrieve all student email addresses from the database
+    const students = await studentModel.find({}, "email");
+
+    if (students.length === 0) {
+      return res.status(404).send("No students found");
+    }
+
+    // Prepare and send emails to all students
+    const emailPromises = students.map((student) => {
+      if (!student.email) {
+        console.error(`Missing email for student with ID ${student._id}`);
+        return Promise.reject(
+          new Error(`Missing email for student with ID ${student._id}`)
+        );
+      }
+
+      const mailOptions = {
+        from: "cmn896344@gmail.com", // Replace with your email
+        to: student.email, // Ensure this is a valid email address
+        subject: subject,
+        text: message,
+      };
+
+      console.log(`Sending email to: ${mailOptions.to}`); // Log the recipient email
+
+      // Send email and return the promise
+      return transporter
+        .sendMail(mailOptions)
+        .then((info) => {
+          console.log(`Email sent to ${mailOptions.to}: ${info.response}`);
+        })
+        .catch((error) => {
+          console.error(`Error sending email to ${mailOptions.to}:`, error);
+        });
+    });
+
+    // Wait for all emails to be sent
+    await Promise.all(emailPromises);
+
+    res.status(200).send("Notifications sent successfully");
+  } catch (error) {
+    console.error("Error sending notifications:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 //------------------------------------------------------------------------------
