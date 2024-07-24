@@ -13,6 +13,7 @@ const adminModel = require("./models/adminModel");
 const feedbackModel = require("./models/feedbackModel");
 const upcomingModel = require("./models/upcomingModel");
 const ResourceModel = require("./models/resourcesModel");
+const { Parser } = require("json2csv");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -223,6 +224,32 @@ app.post("/delete-upcoming/:id", verifyToken, isAdmin, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+// Route to export upcoming updates
+app.get("/export-upcoming", verifyToken, isAdmin, async (req, res) => {
+  try {
+    const upcoming = await upcomingModel.find();
+
+    const fields = [
+      { label: "Job Title", value: "jobTitle" },
+      { label: "Company Name", value: "companyName" },
+      { label: "Description", value: "description" },
+      {
+        label: "Date",
+        value: (row) => new Date(row.date).toLocaleDateString(),
+      },
+    ];
+
+    const json2csvParser = new Parser({ fields });
+    const csv = json2csvParser.parse(upcoming);
+
+    res.header("Content-Type", "text/csv");
+    res.attachment("upcoming_updates.csv");
+    res.send(csv);
+  } catch (error) {
+    console.error("Error exporting upcoming updates:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 // Resources page for admin
 app.get("/admin-resources", verifyToken, isAdmin, async (req, res) => {
@@ -304,13 +331,12 @@ app.get("/logout", (req, res) => {
 });
 
 //------------------------------------------------------------------------------
-// Create transporter for nodemailer
-// Create transporter for nodemailer
+//  transporter for nodemailer
 const transporter = nodemailer.createTransport({
-  service: "Gmail", // Use your email service
+  service: "Gmail", //  email service
   auth: {
-    user: "cmn896344@gmail.com", // Replace with your email
-    pass: "nyud yobb tkdj ghiz", // Replace with your app password
+    user: "cmn896344@gmail.com", // admin email
+    pass: "nyud yobb tkdj ghiz", // created app password
   },
 });
 
@@ -326,7 +352,7 @@ app.post("/send-notification", verifyToken, isAdmin, async (req, res) => {
       return res.status(404).send("No students found");
     }
 
-    // Prepare and send emails to all students
+    // send emails to all students
     const emailPromises = students.map((student) => {
       if (!student.email) {
         console.error(`Missing email for student with ID ${student._id}`);
@@ -336,8 +362,8 @@ app.post("/send-notification", verifyToken, isAdmin, async (req, res) => {
       }
 
       const mailOptions = {
-        from: "cmn896344@gmail.com", // Replace with your email
-        to: student.email, // Ensure this is a valid email address
+        from: "cmn896344@gmail.com", // admin email
+        to: student.email, // student valid email address
         subject: subject,
         text: message,
       };
