@@ -26,7 +26,8 @@
         </div>
         <a href="/admin" class="header__logo">CareerFasten</a>
         <div class="header__search">
-          <input type="button" value="Notify All" class="header__input " />
+          <input type="button" value="Notify All" class="header__input" data-bs-toggle="modal"
+          data-bs-target="#notifyModal" />
         </div>
         <div class="header__toggle">
           <i class="bx bx-menu" id="header-toggle"></i>
@@ -70,6 +71,31 @@
               </a>
           </nav>
         </div>
+
+        <!-- Modal for Email Notification -->
+  <div class="modal fade" id="notifyModal" tabindex="-1" aria-labelledby="notifyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="notifyModalLabel">Send Email Notification</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="notifyForm">
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
         <!--===================RESOURCES===================================-->
         <div class="container mx-auto mt-20 ml-5">
@@ -174,6 +200,7 @@
     crossorigin="anonymous"></script>
   <script src="/javascript/home.js"></script>
   <script src="/javascript/testimonial.js"></script>
+  <script src ="/javascript/admin-home.js"></script>
 </body>
 
 </html>
