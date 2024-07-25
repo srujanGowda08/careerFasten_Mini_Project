@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareerFasten</title>
+    <!--========== BOX ICONS ==========-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--========== TAILWIND CSS ==========-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/testimonials.css" />
+  </head>
+
+  <body>
+    <!--========== HEADER ==========-->
+    <header class="header">
+      <div class="header__container">
+        <div class="header__search">
+          <input
+            type="button"
+            value="Home"
+            class="header__input bg-red-500"
+            onclick="window.location.href='/home'"
+          />
+        </div>
+        <a href="/home" class="header__logo">CareerFasten</a>
+        <div class="header__search">
+          <input
+            type="text"
+            value="<%=user.usn.toUpperCase()%>"
+            class="header__input user"
+            readonly
+          />
+        </div>
+        <div class="header__toggle">
+          <i class="bx bx-menu" id="header-toggle"></i>
+        </div>
+      </div>
+    </header>
+
+    <!--========== MAIN CONTENT ==========-->
+    <div class="container mx-auto mt-20 px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Weekly Contest Section -->
+        <div
+          class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-start"
+        >
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Weekly Contest
+          </h2>
+          <p class="text-gray-600 mb-4">
+            Participate in our weekly coding contest on HackerRank. Compete with
+            your peers and climb the leaderboard!
+          </p>
+          <a
+            href="https://www.hackerrank.com"
+            target="_blank"
+            class="inline-block px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
+            >Go to HackerRank</a
+          >
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div class="bg-white shadow-lg rounded-lg p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Leaderboard</h2>
+          <ul class="space-y-2">
+            <li class="flex justify-between items-center border-b pb-2">
+              <span class="text-3xl font-bold text-yellow-500 mr-2">1st</span>
+              <span class="text-gray-700">4MC22CS415</span>
+            </li>
+            <li class="flex justify-between items-center border-b pb-2">
+              <span class="text-3xl font-bold text-gray-400 mr-2">2nd</span>
+              <span class="text-gray-700">4MC22CS412</span>
+            </li>
+            <li class="flex justify-between items-center">
+              <span class="text-3xl font-bold text-brown-600 mr-2">3rd</span>
+              <span class="text-gray-700">4MC22CS417</span>
+            </li>
+            <li class="flex justify-between items-center">
+              <span class="text-3xl font-bold text-green-600 mr-2">4th</span>
+              <span class="text-gray-700">4MC22CS416</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--========== FOOTER ==========-->
+    <footer class="bg-gray-100 py-4 w-full absolute bottom-0 left-0">
+      <div class="container mx-auto text-center">
+        <p class="text-gray-600">
+          &copy; 2024 CareerFasten. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!--========== MAIN JS ==========-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/javascript/home.js"></script>
+    <script src="/javascript/testimonial.js"></script>
+  </body>
+</html>

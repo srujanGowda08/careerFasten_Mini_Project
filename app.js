@@ -66,6 +66,11 @@ app.get("/home", verifyToken, isStudent, (req, res) => {
   res.render("home", { user: req.user });
 });
 
+//playground page
+app.get("/playground", verifyToken, isStudent, (req, res) => {
+  res.render("playground", { user: req.user });
+});
+
 // Feedback form
 app.post("/create", verifyToken, isStudent, async (req, res) => {
   try {
