@@ -381,3 +381,11 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+@media (max-width: 870px) {
+  #heading {
+    font-size: 1.9rem;
+    position: absolute;
+    top: 350px;
+  }
+}

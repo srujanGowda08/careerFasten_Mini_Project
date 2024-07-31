@@ -1,0 +1,8 @@
+@media (max-width: 870px) {
+  #margin_resources {
+    margin-left: 5px;
+  }
+  #description {
+    font-size: 0.6rem;
+  }
+}

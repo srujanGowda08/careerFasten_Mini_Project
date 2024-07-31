@@ -79,3 +79,13 @@ button:hover {
   border: 1px solid #009696;
   margin-bottom: 20px;
 }
+
+@media (max-width: 870px) {
+  .resume-preview {
+    visibility: hidden;
+  }
+  .container {
+    padding: 5px;
+    width: 80%;
+  }
+}

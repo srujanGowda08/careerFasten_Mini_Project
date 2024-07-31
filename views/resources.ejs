@@ -29,6 +29,7 @@
             type="text"
             value="<%=user.usn.toUpperCase()%>"
             class="header__input user"
+            id="usn"
             readonly
           />
         </div>
@@ -38,6 +39,7 @@
             type="button"
             value="PlayGround"
             class="header__input"
+            id="playground"
             onclick="window.location.href='/playground'"
           />
         </div>
@@ -93,6 +95,7 @@
     <main>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 ml-20 mt-10"
+        id="margin_resources"
       >
         <% resources.forEach(resource => { %>
         <div class="bg-white p-6 rounded shadow-md mt-10">
@@ -103,7 +106,7 @@
           <div class="mb-1 text-muted">
             Updated <%= new Date(resource.date).toLocaleDateString() %>
           </div>
-          <p class="card-text mb-auto"><%= resource.description %></p>
+          <p class="card-text mb-auto" id="description"><%= resource.description %></p>
         </div>
         <% }); %>
       </div>
@@ -126,6 +129,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="/javascript/home.js"></script>
+    <script src="/javascript/main.js"></script>
   </body>
 </html>

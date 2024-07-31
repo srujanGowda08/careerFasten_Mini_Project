@@ -342,3 +342,14 @@ img {
     opacity: 1;
   }
 }
+
+@media (max-width: 870px) {
+  #usn {
+    font-size: 0.8rem;
+  }
+  #playground {
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+  
+}

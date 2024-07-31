@@ -51,3 +51,12 @@ body {
   border-radius: 5px;
   margin-top: 10px;
 }
+
+@media (max-width: 870px) {
+  #upcoming_margin {
+    margin-left: 10px;
+  }
+  #description {
+    font-size: 0.8rem;
+  }
+}
